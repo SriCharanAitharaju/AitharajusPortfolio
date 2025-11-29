@@ -36,12 +36,15 @@ export default function Hero() {
             Hi, I'm <span className="text-primary">AITHARAJU SRICHARAN</span>
           </h1>
           
-          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-8 tracking-wide">
-            ELECTRONICS ENGINEER
+          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-6 tracking-wide">
+            ELECTRONICS STUDENT
           </h2>
 
-          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
-            Combining engineering precision with creative development to build modern digital experiences.
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-3xl mx-auto mb-10 leading-relaxed">
+            A passionate electronics engineering student with a keen interest in embedded systems, 
+            circuit design, and web development. I love exploring new technologies and building 
+            innovative projects that bridge hardware and software. Currently focused on learning 
+            and growing as a future engineer.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

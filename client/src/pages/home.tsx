@@ -7,7 +7,7 @@ function IntroScreen({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 3000);
+    }, 3500);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -41,12 +41,21 @@ function IntroScreen({ onComplete }: { onComplete: () => void }) {
         </motion.div>
         
         <motion.p
-          className="text-white/60 mt-6 text-lg tracking-wider"
+          className="text-white/80 mt-6 text-xl md:text-2xl font-bold tracking-wider"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
         >
           AITHARAJU SRICHARAN
+        </motion.p>
+        
+        <motion.p
+          className="text-primary mt-2 text-lg md:text-xl font-semibold tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6, duration: 0.5 }}
+        >
+          ELECTRONICS STUDENT
         </motion.p>
       </div>
     </motion.div>
