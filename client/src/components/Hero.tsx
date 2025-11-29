@@ -17,9 +17,9 @@ export default function Hero() {
           alt="Background" 
           className="w-full h-full object-cover"
         />
-        {/* Darker overlay for clear white text visibility */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-background/90" />
+        {/* Light overlay for clear dark text visibility */}
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-background/80" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -28,19 +28,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-white/90 font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
+          <h2 className="text-primary font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/80 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-primary/20 shadow-sm">
             Welcome to my portfolio
           </h2>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-heading mb-4 leading-tight text-white drop-shadow-lg">
-            Hi, I'm <span className="text-primary-foreground">AITHARAJU SRICHARAN</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-heading mb-4 leading-tight text-slate-900 drop-shadow-sm">
+            Hi, I'm <span className="text-primary">AITHARAJU SRICHARAN</span>
           </h1>
           
-          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-8 tracking-wide">
+          <h2 className="text-2xl md:text-4xl font-bold font-heading text-slate-800 mb-8 tracking-wide">
             ELECTRONICS ENGINEER
           </h2>
 
-          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+          <p className="text-lg md:text-xl text-slate-700 font-semibold max-w-2xl mx-auto mb-10 leading-relaxed">
             Combining engineering precision with creative development to build modern digital experiences.
           </p>
           
@@ -57,7 +57,7 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full px-8 text-lg h-12 bg-white/10 backdrop-blur-md border-white/30 text-white font-bold hover:bg-white/20 transition-all"
+                className="rounded-full px-8 text-lg h-12 bg-white/60 backdrop-blur-md border-slate-900/20 text-slate-900 font-bold hover:bg-slate-900 hover:text-white transition-all"
               >
                 Contact Me
               </Button>
@@ -67,7 +67,7 @@ export default function Hero() {
       </div>
 
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-900"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >

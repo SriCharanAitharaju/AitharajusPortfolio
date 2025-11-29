@@ -28,8 +28,8 @@ export default function Navbar() {
   ];
 
   const isHome = location === "/";
-  // When on Home and transparent (not scrolled), use white text. Otherwise use standard colors.
-  const useWhiteText = isHome && !scrolled;
+  // Always use standard colors since background is now light
+  const useWhiteText = false;
 
   return (
     <nav
