@@ -27,17 +27,23 @@ export default function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
+  const isHome = location === "/";
+  // When on Home and transparent (not scrolled), use white text. Otherwise use standard colors.
+  const useWhiteText = isHome && !scrolled;
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || location !== "/"
+        scrolled || !isHome
           ? "bg-background/80 backdrop-blur-md border-b shadow-sm py-4"
           : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link href="/">
-          <div className="text-xl md:text-2xl font-extrabold font-heading tracking-tight cursor-pointer text-primary hover:scale-105 transition-transform">
+          <div className={`text-xl md:text-2xl font-extrabold font-heading tracking-tight cursor-pointer hover:scale-105 transition-transform ${
+            useWhiteText ? "text-white" : "text-primary"
+          }`}>
             Aitharaju.
           </div>
         </Link>
@@ -47,10 +53,14 @@ export default function Navbar() {
           {navLinks.map((item) => (
             <Link key={item.name} href={item.path}>
               <div className={`text-sm font-bold cursor-pointer transition-colors relative group ${
-                location === item.path ? "text-primary" : "text-foreground/80 hover:text-primary"
+                location === item.path 
+                  ? (useWhiteText ? "text-white" : "text-primary")
+                  : (useWhiteText ? "text-white/80 hover:text-white" : "text-foreground/80 hover:text-primary")
               }`}>
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all ${
+                <span className={`absolute -bottom-1 left-0 h-0.5 transition-all ${
+                  useWhiteText ? "bg-white" : "bg-primary"
+                } ${
                   location === item.path ? "w-full" : "w-0 group-hover:w-full"
                 }`} />
               </div>
@@ -60,7 +70,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground p-2"
+          className={`md:hidden p-2 ${useWhiteText ? "text-white" : "text-foreground"}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}

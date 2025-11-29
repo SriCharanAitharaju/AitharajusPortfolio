@@ -15,14 +15,11 @@ export default function Hero() {
         <img 
           src={heroBg} 
           alt="Background" 
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover"
         />
-        {/* Lighter overlay to make dark text pop, or darker overlay for light text? 
-            User asked for "Darker and Thicker" font on background. 
-            If I make the overlay light, dark text works.
-        */}
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-background" />
+        {/* Darker overlay for clear white text visibility */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-background/90" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -31,22 +28,27 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-black/80 font-bold tracking-wider uppercase text-sm md:text-base mb-4 bg-white/50 inline-block px-4 py-1 rounded-full backdrop-blur-sm shadow-sm">
+          <h2 className="text-white/90 font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
             Welcome to my portfolio
           </h2>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-heading mb-6 leading-tight text-black drop-shadow-sm">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-700 filter drop-shadow-none">AITHARAJU SRICHARAN</span>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-heading mb-4 leading-tight text-white drop-shadow-lg">
+            Hi, I'm <span className="text-primary-foreground">AITHARAJU SRICHARAN</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-800 font-bold max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-            A passionate beginner developer building modern web experiences.
-            Turning ideas into reality with clean code and creative design.
+          
+          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-8 tracking-wide">
+            ELECTRONICS ENGINEER
+          </h2>
+
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+            Combining engineering precision with creative development to build modern digital experiences.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/projects">
               <Button 
                 size="lg" 
-                className="rounded-full px-8 text-lg h-12 shadow-xl hover:shadow-primary/40 transition-all font-bold border-2 border-primary"
+                className="rounded-full px-8 text-lg h-12 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all font-bold bg-primary hover:bg-primary/90 text-white border-none"
               >
                 View My Work
               </Button>
@@ -55,7 +57,7 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full px-8 text-lg h-12 bg-white/60 backdrop-blur-md border-2 border-slate-800 text-slate-900 font-bold hover:bg-slate-900 hover:text-white transition-all"
+                className="rounded-full px-8 text-lg h-12 bg-white/10 backdrop-blur-md border-white/30 text-white font-bold hover:bg-white/20 transition-all"
               >
                 Contact Me
               </Button>
@@ -65,7 +67,7 @@ export default function Hero() {
       </div>
 
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-900"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
