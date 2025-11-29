@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@assets/generated_images/vibrant_professional_abstract_background_with_blue_and_purple_gradients.png";
+import heroBg from "@assets/generated_images/professional_dark_tech_gradient_background.png";
 import { Link } from "wouter";
 
 export default function Hero() {
@@ -17,9 +17,9 @@ export default function Hero() {
           alt="Background" 
           className="w-full h-full object-cover"
         />
-        {/* Light overlay for clear dark text visibility */}
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-background/80" />
+        {/* Slight dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -28,19 +28,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-primary font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/80 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-primary/20 shadow-sm">
+          <h2 className="text-white/90 font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
             Welcome to my portfolio
           </h2>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-heading mb-4 leading-tight text-slate-900 drop-shadow-sm">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-heading mb-4 leading-tight text-white drop-shadow-lg">
             Hi, I'm <span className="text-primary">AITHARAJU SRICHARAN</span>
           </h1>
           
-          <h2 className="text-2xl md:text-4xl font-bold font-heading text-slate-800 mb-8 tracking-wide">
+          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-8 tracking-wide">
             ELECTRONICS ENGINEER
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-700 font-semibold max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
             Combining engineering precision with creative development to build modern digital experiences.
           </p>
           
@@ -48,7 +48,7 @@ export default function Hero() {
             <Link href="/projects">
               <Button 
                 size="lg" 
-                className="rounded-full px-8 text-lg h-12 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all font-bold bg-primary hover:bg-primary/90 text-white border-none"
+                className="rounded-full px-8 text-lg h-12 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all font-bold bg-primary hover:bg-primary/90 text-white border-none"
               >
                 View My Work
               </Button>
@@ -57,7 +57,7 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full px-8 text-lg h-12 bg-white/60 backdrop-blur-md border-slate-900/20 text-slate-900 font-bold hover:bg-slate-900 hover:text-white transition-all"
+                className="rounded-full px-8 text-lg h-12 bg-white/10 backdrop-blur-md border-white/30 text-white font-bold hover:bg-white/20 transition-all"
               >
                 Contact Me
               </Button>
@@ -67,7 +67,7 @@ export default function Hero() {
       </div>
 
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-900"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >

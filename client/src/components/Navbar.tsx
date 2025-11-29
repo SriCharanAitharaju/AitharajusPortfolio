@@ -28,8 +28,8 @@ export default function Navbar() {
   ];
 
   const isHome = location === "/";
-  // Always use standard colors since background is now light
-  const useWhiteText = false;
+  // Use white text on home page with dark background
+  const useWhiteText = isHome && !scrolled;
 
   return (
     <nav
