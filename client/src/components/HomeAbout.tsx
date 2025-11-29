@@ -163,27 +163,75 @@ export default function HomeAbout() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={containerVariants}
-              className="pt-4"
+              className="pt-6"
             >
-              <h3 className="text-xl font-bold text-white mb-4">Key Skills</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <h3 className="text-2xl font-bold text-white mb-6">Key Skills</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
                   <motion.div
                     key={index}
                     variants={skillVariants}
-                    whileHover={{ scale: 1.05, translateY: -5 }}
-                    className="group relative"
+                    whileHover={{ scale: 1.08, translateY: -8 }}
+                    className="group relative h-48 cursor-pointer"
                   >
-                    <div className={`bg-gradient-to-br ${skill.color} p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center justify-center text-center`}>
+                    {/* Animated background glow */}
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-br ${skill.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300`}
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    />
+                    
+                    {/* Main card */}
+                    <div className={`relative bg-gradient-to-br ${skill.color} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center justify-center text-center p-6 overflow-hidden`}>
+                      {/* Animated background pattern */}
                       <motion.div
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-3xl mb-2"
+                        className="absolute inset-0 opacity-10"
+                        animate={{ 
+                          backgroundPosition: ["0% 0%", "100% 100%"],
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        style={{
+                          backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)",
+                        }}
+                      />
+                      
+                      {/* Content */}
+                      <motion.div
+                        className="relative z-10 flex flex-col items-center justify-center h-full gap-3"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
                       >
-                        {skill.icon}
+                        {/* Animated icon */}
+                        <motion.div
+                          className="text-6xl filter drop-shadow-lg"
+                          animate={{ 
+                            rotate: [0, 10, -10, 0],
+                            y: [0, -8, 0],
+                          }}
+                          transition={{ 
+                            duration: 3, 
+                            repeat: Infinity,
+                            type: "spring",
+                            stiffness: 100,
+                          }}
+                        >
+                          {skill.icon}
+                        </motion.div>
+                        
+                        {/* Text */}
+                        <div>
+                          <p className="font-black text-white text-lg drop-shadow-lg">{skill.name}</p>
+                          <p className="text-xs text-white/90 mt-2 font-semibold drop-shadow-md">{skill.description}</p>
+                        </div>
                       </motion.div>
-                      <p className="font-bold text-white text-sm">{skill.name}</p>
-                      <p className="text-xs text-white/80 mt-1">{skill.description}</p>
+
+                      {/* Hover shine effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
+                        animate={{ x: ['-100%', '100%'] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
                     </div>
                   </motion.div>
                 ))}
