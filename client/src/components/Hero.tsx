@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@assets/generated_images/abstract_modern_geometric_background_for_a_professional_portfolio.png";
+import heroBg from "@assets/generated_images/vibrant_professional_abstract_background_with_blue_and_purple_gradients.png";
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -18,9 +18,9 @@ export default function Hero() {
         <img 
           src={heroBg} 
           alt="Background" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -33,7 +33,7 @@ export default function Hero() {
             Welcome to my portfolio
           </h2>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 leading-tight text-foreground">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700">Aitharaju Sricharan</span>
+            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">AITHARAJU SRICHARAN</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             A passionate beginner developer building modern web experiences.

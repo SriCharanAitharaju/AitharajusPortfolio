@@ -25,7 +25,7 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Hello! I'm <span className="font-medium text-primary">Aitharaju Sricharan</span>, 
+                Hello! I'm <span className="font-medium text-primary">AITHARAJU SRICHARAN</span>, 
                 a budding developer with a passion for creating useful and beautiful digital experiences.
               </p>
               <p>
