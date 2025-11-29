@@ -3,6 +3,7 @@ import { ArrowRight, GraduationCap, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
+import cLogo from "@assets/generated_images/c-logo.png";
 
 export default function HomeAbout() {
   const education = [
@@ -33,7 +34,8 @@ export default function HomeAbout() {
   const skills = [
     { 
       name: "C", 
-      icon: "🔧",
+      icon: null,
+      image: cLogo,
       color: "from-blue-500 to-blue-600",
       description: "Systems Programming"
     },
@@ -174,7 +176,11 @@ export default function HomeAbout() {
                     className="group relative h-48"
                   >
                     <div className={`bg-gradient-to-br ${skill.color} rounded-2xl shadow-lg h-full flex flex-col items-center justify-center text-center p-6`}>
-                      <div className="text-6xl mb-3">{skill.icon}</div>
+                      {skill.image ? (
+                        <img src={skill.image} alt={skill.name} className="w-20 h-20 mb-3 object-contain" />
+                      ) : (
+                        <div className="text-6xl mb-3">{skill.icon}</div>
+                      )}
                       <p className="font-black text-white text-lg">{skill.name}</p>
                       <p className="text-xs text-white/90 mt-2 font-semibold">{skill.description}</p>
                     </div>
