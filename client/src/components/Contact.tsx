@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,17 +10,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
 export default function Contact() {
   const { toast } = useToast();
   
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<InsertContact>({
+    resolver: zodResolver(insertContactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -27,13 +22,41 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting me. I'll get back to you soon.",
-    });
-    form.reset();
+  const mutation = useMutation({
+    mutationFn: async (data: InsertContact) => {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to submit contact form");
+      }
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting me. I'll get back to you soon.",
+      });
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  function onSubmit(values: InsertContact) {
+    mutation.mutate(values);
   }
 
   return (
@@ -112,7 +135,12 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} className="bg-secondary/20" />
+                          <Input 
+                            placeholder="John Doe" 
+                            {...field} 
+                            className="bg-secondary/20"
+                            disabled={mutation.isPending}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -125,7 +153,12 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="john@example.com" {...field} className="bg-secondary/20" />
+                          <Input 
+                            placeholder="john@example.com" 
+                            {...field} 
+                            className="bg-secondary/20"
+                            disabled={mutation.isPending}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -141,15 +174,20 @@ export default function Contact() {
                           <Textarea 
                             placeholder="Tell me about your project..." 
                             className="min-h-[120px] bg-secondary/20 resize-none" 
-                            {...field} 
+                            {...field}
+                            disabled={mutation.isPending}
                           />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full h-11 text-lg">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    className="w-full h-11 text-lg"
+                    disabled={mutation.isPending}
+                  >
+                    {mutation.isPending ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>
