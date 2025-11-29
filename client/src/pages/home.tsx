@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import HomeAbout from "@/components/HomeAbout";
 import { motion, AnimatePresence } from "framer-motion";
 
 function IntroScreen({ onComplete }: { onComplete: () => void }) {
@@ -82,6 +83,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <Hero />
+            <HomeAbout />
           </motion.main>
         </>
       )}
