@@ -101,7 +101,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Email</h3>
-                <p className="text-foreground/80">contact@sricharan.dev</p>
+                <p className="text-foreground/80">sricharanaitharaju@gmail.com</p>
                 <p className="text-sm text-foreground/60 mt-1">I usually reply within 24 hours</p>
               </div>
             </div>
