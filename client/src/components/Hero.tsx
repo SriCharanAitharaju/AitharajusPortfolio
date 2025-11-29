@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@assets/generated_images/professional_dark_tech_gradient_background.png";
 import { Link } from "wouter";
@@ -47,7 +47,7 @@ export default function Hero() {
             and growing as a future engineer.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link href="/projects">
               <Button 
                 size="lg" 
@@ -65,6 +65,27 @@ export default function Hero() {
                 Contact Me
               </Button>
             </Link>
+          </div>
+
+          <div className="flex gap-4 justify-center">
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all shadow-lg hover:shadow-xl"
+              data-testid="button-github"
+            >
+              <Github size={24} />
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all shadow-lg hover:shadow-xl"
+              data-testid="button-linkedin"
+            >
+              <Linkedin size={24} />
+            </a>
           </div>
         </motion.div>
       </div>
