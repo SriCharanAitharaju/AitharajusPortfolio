@@ -4,10 +4,10 @@ import { Code, Database, Layout, Smartphone } from "lucide-react";
 
 export default function About() {
   const skills = [
-    { name: "HTML5 & CSS3", icon: <Layout className="w-6 h-6" /> },
-    { name: "JavaScript (ES6+)", icon: <Code className="w-6 h-6" /> },
-    { name: "React Basics", icon: <Database className="w-6 h-6" /> },
-    { name: "Responsive Design", icon: <Smartphone className="w-6 h-6" /> },
+    { name: "C", icon: <Code className="w-6 h-6" />, description: "Systems Programming" },
+    { name: "Java", icon: <Layout className="w-6 h-6" />, description: "Object-Oriented Dev" },
+    { name: "Python", icon: <Database className="w-6 h-6" />, description: "Data & Scripts" },
+    { name: "Event Organizing", icon: <Smartphone className="w-6 h-6" />, description: "Team Leadership" },
   ];
 
   return (
@@ -50,11 +50,14 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skills.map((skill, index) => (
                 <Card key={index} className="border-border/50 bg-card hover:bg-secondary transition-colors">
-                  <CardContent className="flex items-center gap-4 p-4">
-                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                      {skill.icon}
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                        {skill.icon}
+                      </div>
+                      <span className="font-medium text-foreground">{skill.name}</span>
                     </div>
-                    <span className="font-medium text-foreground">{skill.name}</span>
+                    <p className="text-sm text-foreground/60 ml-11">{skill.description}</p>
                   </CardContent>
                 </Card>
               ))}
