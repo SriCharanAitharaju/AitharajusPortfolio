@@ -4,6 +4,53 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
 export default function HomeAbout() {
+  const skills = [
+    { 
+      name: "C", 
+      icon: "🔧",
+      color: "from-blue-500 to-blue-600",
+      description: "Systems Programming"
+    },
+    { 
+      name: "Java", 
+      icon: "☕",
+      color: "from-orange-500 to-orange-600",
+      description: "Object-Oriented Dev"
+    },
+    { 
+      name: "Python", 
+      icon: "🐍",
+      color: "from-yellow-500 to-yellow-600",
+      description: "Data & Scripts"
+    },
+    { 
+      name: "Event Organizing", 
+      icon: "🎯",
+      color: "from-pink-500 to-pink-600",
+      description: "Team Leadership"
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const skillVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
@@ -82,6 +129,39 @@ export default function HomeAbout() {
                 My journey combines my love for electronics with modern web technologies, 
                 and I'm excited to create projects that merge hardware and software innovations.
               </p>
+            </motion.div>
+
+            {/* Skills Section */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="pt-4"
+            >
+              <h3 className="text-xl font-bold text-white mb-4">Key Skills</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    variants={skillVariants}
+                    whileHover={{ scale: 1.05, translateY: -5 }}
+                    className="group relative"
+                  >
+                    <div className={`bg-gradient-to-br ${skill.color} p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center justify-center text-center`}>
+                      <motion.div
+                        animate={{ rotate: [0, 5, -5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-3xl mb-2"
+                      >
+                        {skill.icon}
+                      </motion.div>
+                      <p className="font-bold text-white text-sm">{skill.name}</p>
+                      <p className="text-xs text-white/80 mt-1">{skill.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
