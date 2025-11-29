@@ -28,7 +28,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-white/90 font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
+          <h2 className="text-white font-bold tracking-wider uppercase text-sm md:text-base mb-6 bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
             Welcome to my portfolio
           </h2>
           
@@ -36,11 +36,11 @@ export default function Hero() {
             Hi, I'm <span className="text-primary">AITHARAJU SRICHARAN</span>
           </h1>
           
-          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white/90 mb-6 tracking-wide">
+          <h2 className="text-2xl md:text-4xl font-bold font-heading text-white mb-6 tracking-wide">
             ELECTRONICS STUDENT
           </h2>
 
-          <p className="text-lg md:text-xl text-white/80 font-medium max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white font-medium max-w-3xl mx-auto mb-10 leading-relaxed">
             A passionate electronics engineering student with a keen interest in embedded systems, 
             circuit design, and web development. I love exploring new technologies and building 
             innovative projects that bridge hardware and software. Currently focused on learning 
@@ -70,7 +70,7 @@ export default function Hero() {
       </div>
 
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
