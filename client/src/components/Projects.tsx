@@ -8,7 +8,7 @@ export default function Projects() {
   const projects = [
     {
       title: "LetsPlay AU",
-      description: "A comprehensive platform for discovering and managing gaming events and communities. Features user profiles, event listings, and community engagement tools.",
+      description: "A real-time sports complex availability tracker designed for colleges and sports complexes. Helps users check facility availability, book sports grounds, and manage schedules efficiently.",
       tags: ["React", "Node.js", "PostgreSQL"],
       link: "#"
     },
