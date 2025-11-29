@@ -13,15 +13,15 @@ export default function Projects() {
       link: "#"
     },
     {
-      title: "Task Manager App",
-      description: "A simple to-do list application that allows users to add, edit, and delete tasks. Features local storage support.",
-      tags: ["React", "Local Storage", "CSS"],
+      title: "LetsPlay AU",
+      description: "A comprehensive platform for discovering and managing gaming events and communities. Features user profiles, event listings, and community engagement tools.",
+      tags: ["React", "Node.js", "PostgreSQL"],
       link: "#"
     },
     {
-      title: "Weather Dashboard",
-      description: "A weather forecasting application that fetches data from a public API to display current weather conditions.",
-      tags: ["API Integration", "JavaScript", "Async/Await"],
+      title: "Finger Print Quality Estimator",
+      description: "An intelligent system for analyzing and estimating fingerprint quality using advanced image processing techniques and machine learning algorithms.",
+      tags: ["Python", "Image Processing", "ML"],
       link: "#"
     }
   ];
