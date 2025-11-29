@@ -7,12 +7,6 @@ import { Button } from "@/components/ui/button";
 export default function Projects() {
   const projects = [
     {
-      title: "Personal Portfolio",
-      description: "A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase my skills and projects.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      link: "#"
-    },
-    {
       title: "LetsPlay AU",
       description: "A comprehensive platform for discovering and managing gaming events and communities. Features user profiles, event listings, and community engagement tools.",
       tags: ["React", "Node.js", "PostgreSQL"],
@@ -20,8 +14,8 @@ export default function Projects() {
     },
     {
       title: "Finger Print Quality Estimator",
-      description: "An intelligent system for analyzing and estimating fingerprint quality using advanced image processing techniques and machine learning algorithms.",
-      tags: ["Python", "Image Processing", "ML"],
+      description: "An intelligent system built with MATLAB for analyzing and estimating fingerprint quality using advanced signal processing and systems techniques for biometric authentication.",
+      tags: ["MATLAB", "Signal Processing", "Systems"],
       link: "#"
     }
   ];
