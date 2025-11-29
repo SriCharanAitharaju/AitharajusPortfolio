@@ -1,9 +1,35 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 
 export default function HomeAbout() {
+  const education = [
+    {
+      level: "School",
+      institution: "Kamala Memorial High School",
+      location: "Nacharam, Hyderabad",
+      year: "2021",
+      icon: "🏫",
+    },
+    {
+      level: "Intermediate",
+      institution: "Nano Junior College",
+      location: "Nallakunta, Hyderabad",
+      year: "2021 - 2023",
+      icon: "📚",
+    },
+    {
+      level: "Undergraduate",
+      institution: "Anurag University",
+      location: "Ghatkesar, Hyderabad",
+      year: "2024 - 2028",
+      cgpa: "8.63",
+      icon: "🎓",
+    },
+  ];
+
   const skills = [
     { 
       name: "C", 
@@ -182,6 +208,61 @@ export default function HomeAbout() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Education Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-20 pt-20 border-t border-border/30"
+        >
+          <div className="flex items-center gap-3 mb-12">
+            <GraduationCap className="w-8 h-8 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+              Education
+            </h2>
+          </div>
+
+          <div className="space-y-6 max-w-3xl">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <Card className="border-border/50 bg-card hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-blue-400" />
+                  <CardContent className="p-6 pl-8">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-3xl">{edu.icon}</span>
+                          <div>
+                            <h3 className="text-xl font-bold text-primary">{edu.level}</h3>
+                            <p className="text-lg font-semibold text-foreground">{edu.institution}</p>
+                          </div>
+                        </div>
+                        <p className="text-foreground/70 ml-12">{edu.location}</p>
+                        {edu.cgpa && (
+                          <p className="text-foreground/70 ml-12 mt-1">
+                            <span className="font-semibold">CGPA:</span> {edu.cgpa}
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2 text-primary font-semibold whitespace-nowrap">
+                        <Calendar className="w-4 h-4" />
+                        {edu.year}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
