@@ -37,7 +37,7 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-foreground/80 max-w-2xl mx-auto">
             Here are a few examples of my work as I learn and grow as a developer.
           </p>
         </motion.div>
@@ -51,7 +51,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full flex flex-col hover:shadow-lg transition-all duration-300 group border-border/50 overflow-hidden">
+              <Card className="h-full flex flex-col hover:shadow-lg transition-all duration-300 group border-border/50 overflow-hidden bg-card">
                 <div className="h-2 bg-gradient-to-r from-primary to-blue-400 w-full" />
                 <CardHeader>
                   <CardTitle className="text-xl group-hover:text-primary transition-colors">
@@ -66,7 +66,7 @@ export default function Projects() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <CardDescription className="text-base leading-relaxed">
+                  <CardDescription className="text-base leading-relaxed text-foreground/80">
                     {project.description}
                   </CardDescription>
                 </CardContent>

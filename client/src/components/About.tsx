@@ -11,7 +11,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -23,7 +23,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground">
               About Me
             </h2>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-lg text-foreground/80 leading-relaxed">
               <p>
                 Hello! I'm <span className="font-medium text-primary">AITHARAJU SRICHARAN</span>, 
                 a budding developer with a passion for creating useful and beautiful digital experiences.
@@ -49,12 +49,12 @@ export default function About() {
             <h3 className="text-2xl font-bold font-heading mb-6">My Skills</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skills.map((skill, index) => (
-                <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
+                <Card key={index} className="border-border/50 bg-card hover:bg-secondary transition-colors">
                   <CardContent className="flex items-center gap-4 p-4">
                     <div className="p-2 bg-primary/10 rounded-lg text-primary">
                       {skill.icon}
                     </div>
-                    <span className="font-medium">{skill.name}</span>
+                    <span className="font-medium text-foreground">{skill.name}</span>
                   </CardContent>
                 </Card>
               ))}

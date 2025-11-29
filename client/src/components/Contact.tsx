@@ -60,7 +60,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
+    <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Get In Touch</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-foreground/80 max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to reach out!
           </p>
         </motion.div>
@@ -85,35 +85,35 @@ export default function Contact() {
             className="space-y-8"
           >
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-background rounded-full shadow-sm text-primary">
+              <div className="p-3 bg-primary/10 rounded-full shadow-sm text-primary">
                 <Phone size={24} />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Phone</h3>
-                <p className="text-muted-foreground">9059071512</p>
-                <p className="text-sm text-muted-foreground mt-1">Mon-Fri from 9am to 6pm</p>
+                <p className="text-foreground/80">9059071512</p>
+                <p className="text-sm text-foreground/60 mt-1">Mon-Fri from 9am to 6pm</p>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-background rounded-full shadow-sm text-primary">
+              <div className="p-3 bg-primary/10 rounded-full shadow-sm text-primary">
                 <Mail size={24} />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Email</h3>
-                <p className="text-muted-foreground">contact@sricharan.dev</p>
-                <p className="text-sm text-muted-foreground mt-1">I usually reply within 24 hours</p>
+                <p className="text-foreground/80">contact@sricharan.dev</p>
+                <p className="text-sm text-foreground/60 mt-1">I usually reply within 24 hours</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-background rounded-full shadow-sm text-primary">
+              <div className="p-3 bg-primary/10 rounded-full shadow-sm text-primary">
                 <MapPin size={24} />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Location</h3>
-                <p className="text-muted-foreground">Hyderabad, India</p>
-                <p className="text-sm text-muted-foreground mt-1">Available for remote work</p>
+                <p className="text-foreground/80">Hyderabad, India</p>
+                <p className="text-sm text-foreground/60 mt-1">Available for remote work</p>
               </div>
             </div>
           </motion.div>
@@ -125,7 +125,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-background p-8 rounded-2xl shadow-sm border border-border/50">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border/50">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
@@ -138,7 +138,7 @@ export default function Contact() {
                           <Input 
                             placeholder="John Doe" 
                             {...field} 
-                            className="bg-secondary/20"
+                            className="bg-secondary/20 border-border text-foreground"
                             disabled={mutation.isPending}
                           />
                         </FormControl>
@@ -156,7 +156,7 @@ export default function Contact() {
                           <Input 
                             placeholder="john@example.com" 
                             {...field} 
-                            className="bg-secondary/20"
+                            className="bg-secondary/20 border-border text-foreground"
                             disabled={mutation.isPending}
                           />
                         </FormControl>
@@ -173,7 +173,7 @@ export default function Contact() {
                         <FormControl>
                           <Textarea 
                             placeholder="Tell me about your project..." 
-                            className="min-h-[120px] bg-secondary/20 resize-none" 
+                            className="min-h-[120px] bg-secondary/20 border-border text-foreground resize-none" 
                             {...field}
                             disabled={mutation.isPending}
                           />
