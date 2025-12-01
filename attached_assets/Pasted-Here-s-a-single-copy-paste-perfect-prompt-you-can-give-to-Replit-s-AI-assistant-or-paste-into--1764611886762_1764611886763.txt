@@ -1,0 +1,72 @@
+Here’s a single, copy-paste **perfect prompt** you can give to Replit’s AI assistant (or paste into Replit Shell as an instruction if it accepts natural language tasks). It tells Replit exactly what to create, what commands to run, what to commit/push, and how to report results or errors back to you.
+
+---
+
+**Prompt — paste this into Replit’s AI / assistant / shell instruction box:**
+
+> I need you to automatically create and fix files and run the build so my Vite + React project is deployed as a static site on Vercel. Do the following steps in order and show me clear output for each step (success or full error logs). **Do not ask me follow-up questions** — perform every step and report results.
+>
+> 1. Create a file in the project root named `vercel.json` with exactly the following content:
+>
+> ```json
+> {
+>   "version": 2,
+>   "public": true,
+>   "builds": [
+>     { "src": "dist/public/**", "use": "@vercel/static" }
+>   ],
+>   "routes": [
+>     { "src": "/(.*)", "dest": "/index.html" }
+>   ]
+> }
+> ```
+>
+> 2. Verify that `package.json` contains a build script. If it does not, add this inside `scripts`:
+>
+> ```json
+> "scripts": {
+>   "build": "tsx script/build.ts",
+>   "start": "node dist/index.cjs"
+> }
+> ```
+>
+> (If `start` already exists, leave it; only add `build` if missing.)
+>
+> 3. Ensure `vite.config.js` exists in project root and contains the vendor chunking config. If it is missing or invalid, create/overwrite it with the corrected `defineConfig(async () => {...})` code I gave earlier so `rollupOptions.output.manualChunks` is defined. If you change it, show the new file contents.
+>
+> 4. Run the install and build commands:
+>
+> ```
+> npm install
+> npm run build
+> ```
+>
+> Show the full output of both commands. If `npm run build` fails, print the full error log and stop; otherwise continue.
+>
+> 5. After a successful build, verify `dist/public/index.html` exists. Show:
+>
+> * `ls -la dist/public`
+>
+> * the first 30 lines of `dist/public/index.html`
+>
+> 6. Create a git commit with the message: `"chore: add vercel.json and ensure static build config"`. If no git repository is present, initialize one. Then push the commit to the already configured `origin` remote and `main` branch. If authentication is required, print instructions for a PAT (do not stop).
+>
+> 7. If the push succeeds, print the GitHub repo URL and trigger a Vercel rebuild by creating an empty commit and pushing it:
+>
+> ```
+> git commit --allow-empty -m "trigger vercel rebuild"
+> git push
+> ```
+>
+> Show the git push output.
+>
+> 8. After pushing, perform a HEAD request to the production URL pattern `https://aitharajus-portfolio-7lbz.vercel.app` and print the response headers and a short body preview (first 200 bytes). Use `curl -I` and `curl -sS` to verify `Content-Type` and status codes. If the domain differs, detect the first production domain from the Vercel deployments list if possible and use that.
+>
+> 9. If any step fails, print clear error logs and the exact command I should run next. If everything succeeds, print:
+>    `SUCCESS: Site built, pushed, and deployed. Open https://aitharajus-portfolio-7lbz.vercel.app`
+>
+> **End of instructions.** Execute now and paste all outputs and any errors here.
+
+---
+
+If you prefer, I can also paste the same series of shell commands (instead of the natural-language prompt) so you can run them yourself line-by-line in Replit Shell. Want that instead?
